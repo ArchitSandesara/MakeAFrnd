@@ -1,16 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+
+    compileSdkVersion Integer.parseInt(project.compileSdkVersion)
 
     defaultConfig {
-        applicationId "com.lambton.makeafriend"
-        minSdkVersion 26
-        targetSdkVersion 27
+        applicationId "com.quanturium.android.example.bottomsheetpicker"
         versionCode 1
         versionName "1.0"
+
+        minSdkVersion project.minSdkVersion.toInteger()
+        targetSdkVersion project.targetSdkVersion.toInteger()
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi', 'xxxhdpi']
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,6 +29,10 @@ android {
             resValue("string", "NEARBY_API_KEY", "\"" + getDebugApiKey() + "\"")
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 // Repository for Supernova-Emoji library and ImagePicker
@@ -35,23 +44,25 @@ repositories {
 //Get the Nearby API Key (Debug key) from the gradle.properties file (not checked in)
 def getDebugApiKey(){
     def Properties properties = new Properties()
-  //  properties.load(new FileInputStream(new File('gradle.properties')))
-    return 'AIzaSyBnQ0zEFhwXoZHqnmWu19aI1m201aFY07Y'
+    //  properties.load(new FileInputStream(new File('gradle.properties')))
+    return 'AIzaSyB4_HfO0Lwj1nYwGvx8ygWGy2Xy_dmANAM'
 }
 
 def getReleaseApiKey(){
     def Properties properties = new Properties()
-  //  properties.load(new FileInputStream(new File('gradle.properties')))
-    return 'AIzaSyBnQ0zEFhwXoZHqnmWu19aI1m201aFY07Y '
+    //  properties.load(new FileInputStream(new File('gradle.properties')))
+    return 'AIzaSyB4_HfO0Lwj1nYwGvx8ygWGy2Xy_dmANAM '
 }
 
 dependencies {
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':library')
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.github.bumptech.glide:glide:3.7.0"
+
     testCompile 'junit:junit:4.12'
-    implementation  'com.android.support:appcompat-v7:27.1.1'
-    implementation  'com.android.support:design:27.1.1'
-    implementation  'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.0'
     implementation  'com.google.code.gson:gson:2.8.0'
     implementation 'com.tomergoldst.android:tooltips:1.0.10'
     compile 'hani.momanii.supernova_emoji_library:supernova-emoji-library:0.0.2'
@@ -60,5 +71,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.github.nguyenhoanglam:ImagePicker:1.0.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    compile 'com.quanturium.android:bottomsheetpicker:2.0.1'
+
 }

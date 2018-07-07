@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.danielcswain.makeafriend"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hackathhon.android.makeafrnd.bottomsheetpicker">
 
-    <!--Permissions for accessing images to send images-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -18,8 +18,8 @@
             android:value="@string/NEARBY_API_KEY"/>
 
         <activity
-            android:name="com.lambton.makeafriend.MainActivity"
-            android:label="@string/app_name">
+            android:name="com.hackathhon.android.makeafrnd.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -28,14 +28,24 @@
         </activity>
 
         <activity
-            android:name="com.lambton.makeafriend.ChatActivity"
+            android:name="com.hackathhon.android.makeafrnd.ChatActivity"
+            android:screenOrientation="portrait"
             android:configChanges= "orientation|screenLayout|layoutDirection|screenSize">
 
             <!-- Parent activity meta-data to add back button -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.lambton.makeafriend.MainActivity"/>
+                android:value="com.hackathhon.android.makeafrnd.MainActivity"/>
         </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="@string/file_provider_authority"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
 
     </application>
 

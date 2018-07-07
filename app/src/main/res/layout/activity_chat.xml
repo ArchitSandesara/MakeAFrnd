@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/messageTextField"
-    tools:context="com.danielcswain.makeafriend.com.lambton.makeafriend.ChatActivity">
+    tools:context="com.danielcswain.makeafriend.com.quanturium.android.example.bottomsheetpicker.ChatActivity">
 
     <!--The RecyclerView containing the user's currently in the chat-->
     <android.support.v7.widget.RecyclerView

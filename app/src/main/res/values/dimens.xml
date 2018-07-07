@@ -1,4 +1,8 @@
 <resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
     <dimen name="activity_horizontal_margin_4dp">4dp</dimen>
     <dimen name="activity_vertical_margin_4dp">4dp</dimen>
     <dimen name="activity_horizontal_margin_8dp">8dp</dimen>
@@ -21,4 +25,5 @@
     <dimen name="button_circular_40dp">40dp</dimen>
     <dimen name="button_message_send_32dp">32dp</dimen>
     <dimen name="text_emoji">28sp</dimen>
+
 </resources>
