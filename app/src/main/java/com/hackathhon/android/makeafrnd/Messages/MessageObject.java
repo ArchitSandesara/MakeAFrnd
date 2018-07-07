@@ -21,7 +21,7 @@ public class MessageObject {
     private static final Gson sGson = new Gson();
     private String mUsername;
     private String mMessageBody;
-    private String mAvatarColour;
+    private String avatar;
     private boolean mFromUser;
     private UUID mMessageUuid;
     private String mMessageContent;
@@ -34,11 +34,11 @@ public class MessageObject {
      * @param avatarColour the colour of the user's avatar
      * @param fromUser boolean used to determine which layout to use, either the message_item_received or sent.
      */
-    public MessageObject(String username, String messageBody, String messageContent, String avatarColour, boolean fromUser){
+    public MessageObject(String username, String messageBody, String messageContent, String avatar, boolean fromUser){
         this.mUsername = username;
         this.mMessageBody = messageBody;
         this.mMessageContent = messageContent;
-        this.mAvatarColour = avatarColour;
+        this.avatar = avatar;
         this.mFromUser = fromUser;
         this.mMessageUuid = UUID.randomUUID();
     }
@@ -75,7 +75,7 @@ public class MessageObject {
             if (Objects.equals(((MessageObject) obj).mUsername, this.mUsername) &&
                     Objects.equals(((MessageObject) obj).mMessageBody, this.mMessageBody) &&
                     Objects.equals(((MessageObject) obj).mMessageContent, this.mMessageContent) &&
-                    Objects.equals(((MessageObject) obj).mAvatarColour, this.mAvatarColour) &&
+                    Objects.equals(((MessageObject) obj).avatar, this.avatar) &&
                     Objects.equals(((MessageObject) obj).mFromUser, this.mFromUser) &&
                     Objects.equals(((MessageObject) obj).mMessageUuid, this.mMessageUuid)){
                 match = true;
@@ -99,8 +99,8 @@ public class MessageObject {
         return mFromUser;
     }
 
-    public String getAvatarColour() {
-        return mAvatarColour;
+    public String getAvatar() {
+        return avatar;
     }
 
     public UUID getMessageUuid() {

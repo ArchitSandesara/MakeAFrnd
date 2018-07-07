@@ -107,8 +107,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
 
         // Set the user avatar colour to match the user's chosen colour.
         try{
-            holder.userAvatarIV.setColorFilter(Color.parseColor(messageObject.getAvatarColour()));
-        } catch (IllegalArgumentException e){
+            byte[] decodedString = Base64.decode(mMessageObjects.get(position).getAvatar().getBytes(), Base64.DEFAULT);
+
+            holder.userAvatarIV.setImageBitmap(BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length));;
+
+            } catch (IllegalArgumentException e){
             // Use the default pink colour if the messageObject.avatarColour property is not a valid Hex String
             holder.userAvatarIV.setColorFilter(ContextCompat.getColor(MainActivity.mainContext, R.color.md_pink_500));
         }

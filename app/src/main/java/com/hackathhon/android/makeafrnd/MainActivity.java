@@ -49,7 +49,7 @@ private BottomSheetPickerFragment bottomSheetPickerFragment;
     @BindView(com.hackathhon.android.makeafrnd.bottomsheetpicker.R.id.profile_image) CircleImageView imgProfilePic;
     public static final String SHARED_PREFS_FILE = "NearbyChatPreferences";
     public static final String USERNAME_KEY = "username";
-    public static final String AVATAR = "avatarr";
+    public static final String AVATAR = "avatar";
     public static Context mainContext;
 
 

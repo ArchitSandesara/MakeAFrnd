@@ -64,9 +64,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
         // Get the userObject from the ArrayList at that position
         final UserObject userObject = mUserObjects.get(position);
 
-        // Set the colour of the avatar to match the user's preference as stored by the userObject
-       // holder.userAvatar.setColorFilter(Color.parseColor(userObject.getAvatar()));
-        byte[] decodedString = Base64.decode(userObject.getAvatar().getBytes(), Base64.DEFAULT);
+            byte[] decodedString = Base64.decode(userObject.getAvatar().getBytes(), Base64.DEFAULT);
 
         holder.userAvatar.setImageBitmap(BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length));;
         // Set an onClickListener to the avatar to show the user's username on click
